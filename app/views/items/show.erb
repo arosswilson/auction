@@ -1,0 +1,17 @@
+<%= @item.title %><br/>
+auction start: <%= @item.start %><br/>
+auction stop: <%= @item.stop %><br/>
+<%= @item.description%><br/><br/><br/>
+<h6>number of users bidding on this item: <%= @bid_count %></h6>
+
+<% if logged_in? %>
+  <form action="/bids" method="post">
+    <label for="amount">Amount</label>
+    <input type="number" name="bid[amount]" />
+    <input type="hidden" name="bid[user_id]" value="<%=session[:user_id]%>"/>
+    <input type="hidden" name="bid[item_id]" value="<%=@item.id%>"/>
+    <input type="submit" value="make bid"/>
+  </form>
+<% else %>
+  <h6>To place a bid please <a href="/login">login</a> or <a href="/users/new">register</a>. </h6>
+<% end %>

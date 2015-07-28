@@ -1,0 +1,10 @@
+<li>
+  <a class="btn btn-success" href="/items/<%= item.id %>"><%= item.title %></a>
+  <% if user_created_item?(item) %>
+    <a class="btn btn-warning" href="/items/<%= item.id %>/edit">edit</a> |
+    <form class="btn btn-danger" action="/items/<%= item.id %>" method="post">
+      <input type="hidden" name="_method" id="" value="DELETE" />
+      <input type="submit" value="delete"/>
+    </form>
+  <% end %>
+</li>

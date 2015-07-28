@@ -1,0 +1,29 @@
+<%= @user.username %>
+
+<% if logged_in? %>
+  <form action="/items/new" method="get">
+    <input type="hidden" name="user_id" value="<%=session[:user_id]%>"/>
+    <input type="submit" value="create item"/>
+  </form>
+<% end %>
+
+<h3>Your items up for auction</h3>
+<ul>
+  <% @items.each do |item| %>
+    <%= erb :'items/_item', locals: {item: item} %>
+<% end %>
+</ul>
+
+<h3>Items You've Bid On</h3>
+<ul>
+  <% @items_user_has_bid_on.each do |item| %>
+    <%= erb :'items/_item', locals: {item: item} %>
+  <% end %>
+</ul>
+
+<h3>Items You've Won!</h3>
+<ul>
+  <% @items_won_by_user.each do |item| %>
+    <%= erb :'items/_item', locals: {item: item} %>
+  <% end %>
+</ul>

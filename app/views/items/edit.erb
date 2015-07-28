@@ -1,0 +1,14 @@
+<H2>update item</H2>
+<form action="/items/<%= @item.id %>" method="post">
+  <label for="title">Title</label><br/>
+  <input type="hidden" name="_method" id="" value="PUT" />
+  <input type="text" name="item[title]" value="<%= @item.title %>"/><br/>
+  <label for="title">Description</label><br/>
+  <textarea name="item[description]"><%= @item.description %></textarea><br/>
+  <label for="start">Start Time</label><br/>
+  <input type="text" name="item[start]" value="<%= @item.start %>"/><br/>
+  <label for="start">Stop Time</label><br/>
+  <input type="text" name="item[stop]" value="<%= @item.stop %>"/><br/>
+  <input type="hidden" name="item[user_id]" value="<%= session[:user_id] %>" />
+  <input type="submit" value="updated item"/>
+</form>

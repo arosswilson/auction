@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <title></title>
+</head>
+  <% if logged_in? %>
+    <form class="btn btn-primary" action="/sessions" method="post">
+      <input type="hidden" name="_method" id="" value="DELETE" />
+      <input type="submit" value="logout"/>
+    </form>
+  <% else %>
+    <a class="btn btn-primary" href="/login">Sign In</a>
+  <% end %>
+  <a  class="btn btn-primary" href="/items">homepage</a><br/>
+
+
+  <% if @message %>
+    <%= @message %><br/>
+  <% end %>
+<body>
+  <%= yield %>
+</body>
+</html>

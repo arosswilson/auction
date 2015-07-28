@@ -1,0 +1,12 @@
+<form class="form-horizontal" action="/items" method="post">
+  <label for="title">Title</label><br/>
+  <input type="text" name="item[title]" placeholder="title"/><br/>
+  <label for="title">Description</label><br/>
+  <textarea name="item[description]"></textarea><br/>
+  <label for="start">Start Time</label><br/>
+  <input type="text" name="item[start]" placeholder="YYYY-MM-DD HH:MM:SS"/><br/>
+  <label for="start">Stop Time</label><br/>
+  <input type="text" name="item[stop]" placeholder="YYYY-MM-DD HH:MM:SS"/><br/>
+  <input type="hidden" name="item[user_id]" value="<%= @user.id%>" />
+  <input type="submit" value="create item"/>
+</form>

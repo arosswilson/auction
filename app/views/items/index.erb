@@ -1,0 +1,11 @@
+<h2>Items</h2><br/>
+<% if logged_in? %>
+  <a href="/users/<%=session[:user_id]%>">profile page</a>
+<% end %>
+
+
+<% @items.each do |item| %>
+  <ul>
+    <%= erb :'items/_item', locals: {item: item} %>
+  </ul>
+<% end %>
